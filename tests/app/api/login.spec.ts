@@ -1,7 +1,7 @@
 import { ApiEndpoints } from '../../../enums/app/app';
 import {
-    UserResponse,
-    UserResponseSchema,
+    LoginResponse,
+    LoginResponseSchema,
 } from '../../../fixtures/api/schemas/app/userSchema';
 import {
     UnauthorizedResponse,
@@ -15,7 +15,7 @@ test.describe('api/login', () => {
         'should return 200 and user data for valid credentials',
         { tag: '@api' },
         async ({ apiRequest }) => {
-            const { status, body } = await apiRequest<UserResponse>({
+            const { status, body } = await apiRequest<LoginResponse>({
                 method: 'POST',
                 url: ApiEndpoints.LOGIN,
                 baseUrl: process.env.API_URL,
@@ -26,7 +26,7 @@ test.describe('api/login', () => {
             });
 
             expect(status).toBe(200);
-            expect(UserResponseSchema.parse(body)).toBeTruthy();
+            expect(LoginResponseSchema.parse(body)).toBeTruthy();
         }
     );
 
