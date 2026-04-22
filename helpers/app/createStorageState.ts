@@ -3,8 +3,8 @@ import { ApiEndpoints, StorageStatePaths } from '../../enums/app/app';
 import { LoginPage } from '../../pages/app/login.page';
 import { ApiRequestFn } from '../../fixtures/api/api-types';
 import {
-    UserResponse,
-    UserResponseSchema,
+    LoginResponse,
+    LoginResponseSchema,
 } from '../../fixtures/api/schemas/app/userSchema';
 import { TestUser } from '../../config/app';
 
@@ -71,7 +71,7 @@ export async function setUserAccessToken(
     apiRequest: ApiRequestFn,
     user: TestUser
 ): Promise<void> {
-    const { status, body } = await apiRequest<UserResponse>({
+    const { status, body } = await apiRequest<LoginResponse>({
         method: 'POST',
         url: ApiEndpoints.LOGIN,
         baseUrl: process.env.API_URL,
@@ -82,7 +82,7 @@ export async function setUserAccessToken(
     });
 
     expect(status).toBe(200);
-    expect(UserResponseSchema.parse(body)).toBeTruthy();
+    expect(LoginResponseSchema.parse(body)).toBeTruthy();
 
     process.env[`${user.role.toUpperCase()}_ACCESS_TOKEN`] = body.access_token;
 }

@@ -14,8 +14,7 @@ export const BadRequestResponseSchema = z.strictObject({
  * Schema for 401 Unauthorized responses.
  */
 export const UnauthorizedResponseSchema = z.strictObject({
-    message: z.literal('Unauthorized'),
-    statusCode: z.literal(401),
+    message: z.string(),
 });
 
 /**

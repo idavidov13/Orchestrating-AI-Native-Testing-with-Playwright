@@ -2,10 +2,9 @@ import { z } from 'zod/v4';
 import type { output as zOutput } from 'zod/v4';
 
 /**
- * Schema for user login response.
- * Customize this schema based on your API response structure.
+ * Schema for user login response (token response).
  */
-export const UserResponseSchema = z.strictObject({
+export const LoginResponseSchema = z.strictObject({
     access_token: z.string(),
     token_type: z.literal('bearer'),
     expires_in: z.number().positive(),
@@ -20,5 +19,5 @@ export const LoginRequestSchema = z.strictObject({
 });
 
 // Type exports
-export type UserResponse = zOutput<typeof UserResponseSchema>;
+export type LoginResponse = zOutput<typeof LoginResponseSchema>;
 export type LoginRequest = zOutput<typeof LoginRequestSchema>;
