@@ -1,18 +1,18 @@
 import { faker } from '@faker-js/faker';
 import {
-    UserResponse,
-    UserResponseSchema,
+    LoginResponse,
+    LoginResponseSchema,
 } from '../../../fixtures/api/schemas/app/userSchema';
 
 /**
  * Generates a valid user object with randomized data using Faker.
- * The generated data conforms to the UserResponseSchema structure.
+ * The generated data conforms to the LoginResponseSchema structure.
  *
  * This factory ensures test isolation by creating unique data for each test run,
  * preventing data collision in parallel execution.
  *
- * @param {Partial<UserResponse>} overrides - Optional partial user object to override default values.
- * @returns {UserResponse} A valid user object matching the UserResponseSchema.
+ * @param {Partial<LoginResponse>} overrides - Optional partial user object to override default values.
+ * @returns {LoginResponse} A valid user object matching the LoginResponseSchema.
  *
  * @example
  * // Generate a random user
@@ -23,9 +23,9 @@ import {
  * const adminUser = generateUser({ email: 'admin@test.com' });
  */
 export const generateUser = (
-    overrides?: Partial<UserResponse>
-): UserResponse => {
-    const defaultUser: UserResponse = {
+    overrides?: Partial<LoginResponse>
+): LoginResponse => {
+    const defaultUser: LoginResponse = {
         access_token: faker.string.alphanumeric(64),
         token_type: 'bearer',
         expires_in: faker.number.int({ min: 3600, max: 86400 }),
@@ -34,7 +34,7 @@ export const generateUser = (
     const mergedUser = { ...defaultUser, ...overrides };
 
     // Validate against schema to ensure type safety
-    return UserResponseSchema.parse(mergedUser);
+    return LoginResponseSchema.parse(mergedUser);
 };
 
 /**
