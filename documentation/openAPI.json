@@ -2140,6 +2140,9 @@
                                         "street": {
                                             "type": "string"
                                         },
+                                        "house_number": {
+                                            "type": "string"
+                                        },
                                         "city": {
                                             "type": "string"
                                         },
@@ -4826,6 +4829,11 @@
                                 "maxLength": 70,
                                 "example": "Street 1"
                             },
+                            "house_number": {
+                                "type": "string",
+                                "maxLength": 10,
+                                "example": "12"
+                            },
                             "city": {
                                 "type": "string",
                                 "maxLength": 40,
@@ -4892,6 +4900,11 @@
                             "street": {
                                 "type": "string",
                                 "example": "Street 1"
+                            },
+                            "house_number": {
+                                "type": "string",
+                                "example": "12",
+                                "nullable": true
                             },
                             "city": {
                                 "type": "string",
