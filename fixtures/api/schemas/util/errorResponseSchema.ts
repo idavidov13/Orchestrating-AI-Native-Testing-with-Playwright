@@ -35,8 +35,28 @@ export const NotFoundResponseSchema = z.strictObject({
     statusCode: z.literal(404),
 });
 
+/**
+ * Schema for 404 Resource Not Found (Toolshop OpenAPI ResourceNotFoundResponse).
+ */
+export const ResourceNotFoundResponseSchema = z.strictObject({
+    message: z.string(),
+});
+
+/**
+ * Schema for 405 Method Not Allowed (Toolshop OpenAPI MethodNotAllowedResponse).
+ */
+export const MethodNotAllowedResponseSchema = z.strictObject({
+    message: z.string(),
+});
+
 // Type exports
 export type BadRequestResponse = zOutput<typeof BadRequestResponseSchema>;
 export type UnauthorizedResponse = zOutput<typeof UnauthorizedResponseSchema>;
 export type ForbiddenResponse = zOutput<typeof ForbiddenResponseSchema>;
 export type NotFoundResponse = zOutput<typeof NotFoundResponseSchema>;
+export type ResourceNotFoundResponse = zOutput<
+    typeof ResourceNotFoundResponseSchema
+>;
+export type MethodNotAllowedResponse = zOutput<
+    typeof MethodNotAllowedResponseSchema
+>;
