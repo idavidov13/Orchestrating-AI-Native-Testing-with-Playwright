@@ -6,8 +6,8 @@ import type { output as zOutput } from 'zod/v4';
  */
 export const BrandSchema = z.strictObject({
     id: z.string(),
-    name: z.string(),
-    slug: z.string(),
+    name: z.string().optional(),
+    slug: z.string().optional(),
 });
 
 /**

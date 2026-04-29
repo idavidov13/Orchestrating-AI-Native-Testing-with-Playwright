@@ -27,6 +27,7 @@ export enum ApiEndpoints {
     CURRENT_USER = '/users/me',
     REGISTER = '/users/register',
     BRANDS = '/brands',
+    PRODUCTS = '/products',
 }
 
 /** Storage state file paths */

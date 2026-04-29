@@ -49,6 +49,20 @@ export const MethodNotAllowedResponseSchema = z.strictObject({
     message: z.string(),
 });
 
+/**
+ * Schema for 404 Item Not Found (Toolshop OpenAPI ItemNotFoundResponse).
+ */
+export const ItemNotFoundResponseSchema = z.strictObject({
+    message: z.string(),
+});
+
+/**
+ * Schema for the generic UpdateResponse (Toolshop UpdateResponse -- PUT/PATCH success).
+ */
+export const UpdateResponseSchema = z.strictObject({
+    success: z.boolean(),
+});
+
 // Type exports
 export type BadRequestResponse = zOutput<typeof BadRequestResponseSchema>;
 export type UnauthorizedResponse = zOutput<typeof UnauthorizedResponseSchema>;
@@ -60,3 +74,5 @@ export type ResourceNotFoundResponse = zOutput<
 export type MethodNotAllowedResponse = zOutput<
     typeof MethodNotAllowedResponseSchema
 >;
+export type ItemNotFoundResponse = zOutput<typeof ItemNotFoundResponseSchema>;
+export type UpdateResponse = zOutput<typeof UpdateResponseSchema>;
