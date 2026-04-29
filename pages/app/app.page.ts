@@ -30,6 +30,12 @@ export class AppPage {
         return this.page.getByRole('combobox', { name: 'sort' });
     }
 
+    productCardByName(name: string): Locator {
+        return this.page.getByRole('link', {
+            name: new RegExp(`^${name} Compare`),
+        });
+    }
+
     // ==================== Actions ====================
 
     /**
@@ -42,5 +48,15 @@ export class AppPage {
         await this.page.goto(process.env.APP_URL!, {
             waitUntil: 'domcontentloaded',
         });
+    }
+
+    /**
+     * Opens the product detail page for the product matching the given name.
+     *
+     * @param {string} name - Product name as displayed in the home page card.
+     * @returns {Promise<void>}
+     */
+    async openProductByName(name: string): Promise<void> {
+        await this.productCardByName(name).click();
     }
 }

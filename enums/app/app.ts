@@ -18,6 +18,13 @@ export enum Messages {
     LOGOUT_SUCCESS = 'You have been logged out',
     SESSION_EXPIRED = 'Your session has expired',
     REQUIRED_FIELD = 'This field is required',
+    PAYMENT_SUCCESS = 'Payment was successful',
+}
+
+/** Application route paths */
+export enum Routes {
+    CHECKOUT = '/checkout',
+    PRODUCT = '/product',
 }
 
 /** API endpoint paths */

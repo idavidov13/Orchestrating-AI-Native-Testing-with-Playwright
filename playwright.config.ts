@@ -57,6 +57,9 @@ export default defineConfig({
 
         /* Navigation timeout */
         navigationTimeout: 30000,
+
+        /* The application uses `data-test` (not `data-testid`) on its elements */
+        testIdAttribute: 'data-test',
     },
 
     /* Test timeout */

@@ -95,6 +95,14 @@ export class NavigationComponent {
         return this.page.getByTestId('nav-sign-out');
     }
 
+    get cartLink(): Locator {
+        return this.page.getByTestId('nav-cart');
+    }
+
+    get cartCount(): Locator {
+        return this.page.getByTestId('cart-quantity');
+    }
+
     // ==================== Actions ====================
 
     /**
@@ -132,5 +140,14 @@ export class NavigationComponent {
     async signOut(): Promise<void> {
         await this.openUserMenu();
         await this.signOutLink.click();
+    }
+
+    /**
+     * Opens the cart page via the navigation cart icon.
+     *
+     * @returns {Promise<void>}
+     */
+    async openCart(): Promise<void> {
+        await this.cartLink.click();
     }
 }
